@@ -1,0 +1,44 @@
+/*
+  express  通讯  
+  get 方法
+*/
+//引入express框架    
+const express = require('express');
+//创建网站服务器
+const app = express();
+app.get('/index', (req, res) => {
+    //获取请求参数  通过query获取
+    res.send(req.query);
+});
+//端口监听
+app.listen(3000);
+console.log('服务器启动成功');
+=========================================================
+
+//引入express框架    
+const express = require('express');
+//创建网站服务器
+const app = express();
+app.get('/index', (req, res) => {
+    //获取请求参数  通过query获取
+    res.send(req.query);
+});
+//端口监听
+app.listen(3000);
+console.log('服务器启动成功');
+const express = require('express');
+const bodyParser = require('body-parser');
+//创建网站服务器
+const app = express();
+
+//请求的参数中必须有这些参数
+app.get('/index/:id/:name/:age', (req, res) => {
+    //接受post请求参数 使用req.param
+    res.send(req.params)
+});
+//端口监听
+app.listen(3000);
+
+
+
+
