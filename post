@@ -1,0 +1,18 @@
+//post Methods
+
+const express = require('express');
+
+const bodyParser = require('body-parser');
+
+const app = express();
+
+app.use(bodyParser.urlencoded({ extended: false}));
+
+app.use(bodyParser.json()) 
+
+//接受请求
+app.post('/add',(req, res) =>{
+	//接受请求参数
+	console.log(req.body);
+})
+

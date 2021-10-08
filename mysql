@@ -1,0 +1,40 @@
+const mysql = require('mysql')
+
+
+var db = mysql.createConnection({
+
+	host:'47.97.102.88',
+	user:'root',
+	password:'123456',
+	database:'studentDB'
+})
+
+db.connect();
+//查询
+var mysql = `SELECT * FROM studentSroce where openid ='${loginRes.data.openid}'`
+//插入
+var addMysql = `INSERT INTO  studentSroce (name,age,sex,score,openid) VALUES ('default','0','1',89,'${loginRes.data.openid}')`
+//更新
+var updateSql =`UPDATE ${tableName} SET name='${userName}',age=${userAge} WHERE openid = '${openid}'`
+
+db.query(updateSql,function(UpdateErr,UpdateResult){
+ 		if(UpdateErr){
+ 			console.log("UpdateErr ==================================>",UpdateErr)
+ 			return false
+ 		}
+ 		console.log("UpdateResult ===========================>",UpdateResult)
+ 		var  response={
+						statusCode:200,
+						msg:"ok",
+						// data:[],
+						data:'提交成功'
+					}
+     //解决跨域问题
+	  res.header("Access-Control-Allow-Origin", "*");
+    res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    
+    
+	res.send(response);
+ 	})
